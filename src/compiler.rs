@@ -50,7 +50,7 @@ macro_rules! bool_to_f64 {
 pub struct InstructionI(pub usize);
 
 /// This enumeration boosts performance because it eliminates expensive function calls for constant values.
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone)]
 pub enum IC {
     I(InstructionI),
     C(f64),
@@ -77,7 +77,7 @@ macro_rules! ic_to_instr {
 }
 
 /// An `Instruction` is an optimized AST node resulting from compilation.
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone)]
 pub enum Instruction {
     //---- Primitive Value Types:
     IConst(f64),
